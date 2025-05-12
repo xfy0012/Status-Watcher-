@@ -1,0 +1,41 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+
+# SQLite database
+*.db
+instance/sites.db
+
+# Environment files
+.env
+*.env
+
+# Virtual environments
+venv/
+source/
+ENV/
+env/
+.venv/
+
+# VS Code settings
+.vscode/
+
+# MacOS
+.DS_Store
+
+# PyInstaller
+*.spec
+
+# Coverage and test
+htmlcov/
+.coverage
+.tox/
+*.egg-info/
+dist/
+build/
+
+# Optional Prometheus data
+prometheus_data/
