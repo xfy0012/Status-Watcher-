@@ -6,26 +6,31 @@ from flask import current_app
 from app.notifier import send_status_to_discord
 from prometheus_client import Gauge, Counter
 
-#website code
+# Prometheus metric: HTTP status code per website
 status_code_gauge = Gauge("website_status_code", "HTTP status code", ["url"])
-#Response Time
+
+# Prometheus metric: Response time in seconds per website
 response_time_gauge = Gauge("website_response_time_seconds", "HTTP response time in seconds", ["url"])
-#status change
+
+# Prometheus metric: Count of status changes per website
 status_change_counter = Counter("website_status_change_total", "Number of status changes", ["url"])
 
 
+# Function to check the status of all websites in the database
 def check_all_websites(app):
-    with app.app_context(): #get the flask app context
+    with app.app_context():     # Ensure we're within Flask's application context
         print("Running the website checks...")
         websites = Website.query.all()
         for site in websites:
             print("checking{site.url}")
             try:
-                start = datetime.now()
-                response = httpx.get(site.url, timeout=5)
-                duration = (datetime.now() - start).total_seconds()
 
-                new_status = str(response.status_code)
+                start = datetime.now()  # Record start time for response time calculation
+                response = httpx.get(site.url, timeout=5)   # Attempt to make a GET request to the website
+                duration = (datetime.now() - start).total_seconds()  # Calculate response time
+
+                new_status = str(response.status_code)  # Save status code as string
+
                 response_time_gauge.labels(url=site.url).set(duration)
                 status_code_gauge.labels(url=site.url).set(int(response.status_code))
 
