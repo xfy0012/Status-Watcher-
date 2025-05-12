@@ -23,7 +23,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![project_license][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+
 
 
 
@@ -115,32 +115,38 @@ This project also includes optional integration with **Prometheus**, enabling ob
 To get a local copy up and running, follow these simple steps.
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+Make sure you have the following installed:
+* Python 3.8+ (https://www.python.org/)
   ```sh
-  npm install npm@latest -g
+  #Check your Python version:
+
+  python --version
+  # Python 3.8+ required
   ```
+* pip (https://pip.pypa.io/en/stable/)
+* Docker & Docker Compose (https://docs.docker.com/compose/)
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get your Discord Webhook URL <br>
+Create a Discord webhook by following [this guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks),  
+and copy the webhook URL (it looks like `https://discord.com/api/webhooks/...`).
+
 2. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/xfy0012/Status-Watcher-.git
+   cd status-watcher-
    ```
-3. Install NPM packages
+3. Configure your webhook URL <br>
+Open the `.env` file in the project root and replace the placeholder with your actual Discord webhook URL:
+   ```py
+   DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your_webhook_here
+   ```
+4. Start the application with Docker
    ```sh
-   npm install
+   docker-compose up --build
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-5. Change git remote url to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin github_username/repo_name
-   git remote -v # confirm the changes
-   ```
+This will build the image and launch the app on http://localhost:5000.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -148,10 +154,17 @@ This is an example of how to list things you need to use the software and how to
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+Once the app is running (via Docker or local), visit: http://localhost:5000
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+###  From the Web Interface
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+Add/Delete a website URL (e.g., `https://example.com`)<br>
+The app will automatically check its availability every few minutes<br>
+If the site is unreachable, you will receive a alert via Discord
+
+### Example Discord Alert
+![Discord Alert Example](assets/discord-alert.png)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -159,13 +172,37 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!-- ROADMAP -->
 ## Roadmap
+### Core Features (Completed)
+- [x] GitHub OSS Setup
+  - [x] LICENSE
+  - [x] README.md
+  - [x] .gitignore
+  - [x] PR & Issue templates
+- [x] Core App Functionality
+  - [x] Website uptime checker
+  - [x] Discord webhook alert integration
+  - [x] Admin web interface (add/delete URLs)
+  - [x] Docker & Docker Compose support
+- [x] Basic Status Dashboard (HTML + Bootstrap)
+  - [x] Display website status
+  - [x] Show last checked time
+- [x] Observability & Monitoring
+  - [x] Prometheus metrics endpoint
+  - [x] Grafana dashboard integration
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+### Planned
+- [ ] Async Monitoring
+  - [ ] Refactor checker using `httpx.AsyncClient`
+  - [ ] Improve concurrency performance for multiple sites
+- [ ] Dashboard Enhancements
+  - [ ] Uptime trend or response time chart
+  - [ ] Filterable view for site status
+- [ ] Notification Integrations
+  - [ ] Email alert support
+  - [ ] Slack or Telegram integration 
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+
+See the [open issues](https://github.com/xfy0012/Status-Watcher-/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -204,67 +241,53 @@ Distributed under the project_license. See `LICENSE.txt` for more information.
 
 
 
-<!-- CONTACT -->
+<!-- CONTACT
 ## Contact
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
 Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
-<!-- ACKNOWLEDGMENTS -->
+<!-- ACKNOWLEDGMENTS
 ## Acknowledgments
 
 * []()
 * []()
-* []()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+* []() -->
+<!-- 
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
+[contributors-shield]: https://img.shields.io/github/contributors/xfy0012/Status-Watcher-.svg?style=for-the-badge
+[contributors-url]: https://github.com/xfy0012/Status-Watcher-/graphs/contributors
 
-[Python]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
-[Python-url]: https://www.python.org/
+[forks-shield]: https://img.shields.io/github/forks/xfy0012/Status-Watcher-.svg?style=for-the-badge
+[forks-url]: https://github.com/xfy0012/Status-Watcher-/network/members
 
 
-[Flask]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
-[Flask-url]: https://flask.palletsprojects.com/
-
-[SQLite]: https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white
-[SQLite-url]: https://www.sqlite.org/index.html
+[stars-shield]: https://img.shields.io/github/stars/xfy0012/Status-Watcher-.svg?style=for-the-badge
+[stars-url]: https://github.com/xfy0012/Status-Watcher-/stargazers
 
 
-[Bootstrap]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com/
-
-[Discord]: https://img.shields.io/badge/Discord%20Webhook-5865F2?style=for-the-badge&logo=discord&logoColor=white
-[Discord-url]: https://discord.com/developers/docs/resources/webhook
+[issues-shield]: https://img.shields.io/github/issues/xfy0012/Status-Watcher-.svg?style=for-the-badge
+[issues-url]: https://github.com/xfy0012/Status-Watcher-/issues
 
 
-[Docker]: https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white
-[Docker-url]: https://www.docker.com/
+[license-shield]: https://img.shields.io/github/license/xfy0012/Status-Watcher-.svg?style=for-the-badge
+[license-url]: https://github.com/xfy0012/Status-Watcher-/blob/main/LICENSE
 
 
-[<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+
+
+
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
@@ -289,6 +312,6 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![project_license][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+
 
 
