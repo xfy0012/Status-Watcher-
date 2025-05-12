@@ -44,9 +44,9 @@
     <br />
     <a href="https://github.com/xfy0012/Status-Watcher-">View Demo</a>
     &middot;
-    <a href="https://github.com/xfy0012/Status-Watcher-/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/xfy0012/Status-Watcher-/issues/new?template=bug_report.md">Report Bug</a>
     &middot;
-    <a href="https://github.com/xfy0012/Status-Watcher-/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/xfy0012/Status-Watcher-/new?template=feature_request.md">Request Feature</a>
   </p>
 </div>
 
@@ -73,8 +73,8 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    
+    
   </ol>
 </details>
 
@@ -224,11 +224,11 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Top contributors:
+<!-- ### Top contributors:
 
 <a href="https://github.com/github_username/repo_name/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=github_username/repo_name" alt="contrib.rocks image" />
-</a>
+</a> -->
 
 
 
