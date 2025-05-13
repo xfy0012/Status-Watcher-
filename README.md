@@ -128,25 +128,35 @@ Make sure you have the following installed:
 
 ### Installation
 
-1. Get your Discord Webhook URL <br>
-Create a Discord webhook by following [this guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks),  
-and copy the webhook URL (it looks like `https://discord.com/api/webhooks/...`).
-
-2. Clone the repo
-   ```sh
+1. Clone the repository:
+   ```bash
    git clone https://github.com/xfy0012/Status-Watcher-.git
-   cd status-watcher-
+   cd Status-Watcher-
    ```
-3. Configure your webhook URL <br>
-Open the `.env` file in the project root and replace the placeholder with your actual Discord webhook URL:
-   ```py
-   DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your_webhook_here
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
    ```
-4. Start the application with Docker
-   ```sh
-   docker-compose up --build
+
+3. Set up the `.env` file:
+   - Copy `.env.example` to `.env`:
+     ```bash
+     cp .env.example .env
+     ```
+   - Fill in the required values in `.env`.
+
+4. Initialize the database:
+   ```bash
+   flask db init
+   flask db migrate -m "Initial migration."
+   flask db upgrade
    ```
-This will build the image and launch the app on http://localhost:5000.
+
+5. Run the application:
+   ```bash
+   python run.py
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
