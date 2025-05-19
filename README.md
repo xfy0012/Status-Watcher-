@@ -78,6 +78,25 @@ docker-compose up --build
 
 ---
 
+## Testing
+
+This project includes automated tests for API endpoints and core business logic.
+
+To run all tests, make sure you have installed the dependencies, then run:
+
+```bash
+pytest
+```
+
+Test coverage includes:
+- API endpoints (CRUD for websites)
+- Website status checking logic (with mocks)
+- Error handling for invalid input and not found resources
+
+Test files are located in the `tests/` directory.
+
+---
+
 ## Usage
 - Add/delete monitored websites via the Web UI
 - The system automatically checks website status on a schedule
