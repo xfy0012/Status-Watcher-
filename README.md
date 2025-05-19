@@ -10,6 +10,8 @@
 
 ## About The Project
 
+**WEB UI EXAMPLE**
+
 ![Web UI Screenshot](assets/web_ui.png)
 
 **Status Watcher** is a lightweight website monitoring tool that periodically checks website availability and sends real-time notifications via Discord when downtime is detected. The project is built with **Flask**, **SQLite**, and **APScheduler**, and optionally integrates with **Prometheus** and **Grafana** for observability.
@@ -50,7 +52,8 @@ Before running the project, create a `.env` file in the project root directory a
 ```env
 DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your_webhook_id/your_webhook_token
 ```
-
+***DISCORD ALERT EXAMPLE ***
+![discordexample](assets/discord-alert.png)
 ### Prerequisites
 - Python 3.8+
 - pip
@@ -115,6 +118,8 @@ Test files are located in the `tests/` directory.
 - [x] Website monitoring and alerting
 - [x] Web UI management
 - [x] Prometheus & Grafana integration
+
+## Plan 
 - [ ] User system and permissions
 - [ ] Email/Slack/Telegram notifications
 - [ ] More advanced monitoring metrics and reports
