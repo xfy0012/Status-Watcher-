@@ -158,6 +158,24 @@ Make sure you have the following installed:
    python run.py
    ```
 
+### Docker Compose (Recommended)
+
+1. Build and start all services (Flask, Prometheus, Grafana):
+   ```bash
+   docker-compose up --build
+   ```
+
+2. Access the services:
+   - Web UI: [http://localhost:5050](http://localhost:5050)
+   - Prometheus: [http://localhost:9090](http://localhost:9090)
+   - Grafana: [http://localhost:3000](http://localhost:3000)
+
+3. To run in the background:
+   ```bash
+   docker-compose up -d --build
+   ```
+
+---
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
