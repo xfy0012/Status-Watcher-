@@ -35,10 +35,11 @@ def add_website():
     if not url:
         return jsonify({"error" : "URL is required "}), 400
     
-    # Create a new Website instance with default values
+    # For now, user_id is hardcoded as 1 for all new websites.
+    # This is a placeholder for future user system expansion.
     new_site = Website(
         url = url,
-        status = 'unknow',
+        status = 'unknown',  # Use the correct spelling for consistency
         user_id = 1
     )
     # Add and commit the new site to the database

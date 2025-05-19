@@ -22,22 +22,32 @@ def check_all_websites(app):
         print("Running the website checks...")
         websites = Website.query.all()
         for site in websites:
-            print("checking{site.url}")
+            print(f"checking {site.url}")
             try:
-
                 start = datetime.now()  # Record start time for response time calculation
                 response = httpx.get(site.url, timeout=5)   # Attempt to make a GET request to the website
                 duration = (datetime.now() - start).total_seconds()  # Calculate response time
-
                 new_status = str(response.status_code)  # Save status code as string
-
                 response_time_gauge.labels(url=site.url).set(duration)
                 status_code_gauge.labels(url=site.url).set(int(response.status_code))
-
+            except httpx.TimeoutException:
+                # Handle timeout specifically
+                new_status = "timeout"
+                response_time_gauge.labels(url=site.url).set(0)
+                status_code_gauge.labels(url=site.url).set(0)
+                print(f"Timeout when checking {site.url}")
+            except httpx.RequestError:
+                # Handle network-related errors (DNS failure, refused connection, etc.)
+                new_status = "unreachable"
+                response_time_gauge.labels(url=site.url).set(0)
+                status_code_gauge.labels(url=site.url).set(0)
+                print(f"Request error when checking {site.url}")
             except Exception as e:
+                # Handle all other exceptions as generic 'down' status
                 new_status = "down"
                 response_time_gauge.labels(url=site.url).set(0)
                 status_code_gauge.labels(url=site.url).set(0)
+                print(f"Unknown error when checking {site.url}: {e}")
 
             if site.status != new_status:
                 send_status_to_discord(site.url, new_status)
