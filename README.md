@@ -44,9 +44,9 @@
     <br />
     <a href="https://github.com/xfy0012/Status-Watcher-">View Demo</a>
     &middot;
-    <a href="https://github.com/xfy0012/Status-Watcher-/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/xfy0012/Status-Watcher-/issues/new?template=bug_report.md">Report Bug</a>
     &middot;
-    <a href="https://github.com/xfy0012/Status-Watcher-/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/xfy0012/Status-Watcher-/new?template=feature_request.md">Request Feature</a>
   </p>
 </div>
 
@@ -73,8 +73,8 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    
+    
   </ol>
 </details>
 
@@ -128,33 +128,61 @@ Make sure you have the following installed:
 
 ### Installation
 
-1. Get your Discord Webhook URL <br>
-Create a Discord webhook by following [this guide](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks),  
-and copy the webhook URL (it looks like `https://discord.com/api/webhooks/...`).
-
-2. Clone the repo
-   ```sh
+1. Clone the repository:
+   ```bash
    git clone https://github.com/xfy0012/Status-Watcher-.git
-   cd status-watcher-
+   cd Status-Watcher-
    ```
-3. Configure your webhook URL <br>
-Open the `.env` file in the project root and replace the placeholder with your actual Discord webhook URL:
-   ```py
-   DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your_webhook_here
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
    ```
-4. Start the application with Docker
-   ```sh
+
+3. Set up the `.env` file:
+   - Copy `.env.example` to `.env`:
+     ```bash
+     cp .env.example .env
+     ```
+   - Fill in the required values in `.env`.
+
+4. Initialize the database:
+   ```bash
+   flask db init
+   flask db migrate -m "Initial migration."
+   flask db upgrade
+   ```
+
+5. Run the application:
+   ```bash
+   python run.py
+   ```
+
+### Docker Compose (Recommended)
+
+1. Build and start all services (Flask, Prometheus, Grafana):
+   ```bash
    docker-compose up --build
    ```
-This will build the image and launch the app on http://localhost:5000.
 
+2. Access the services:
+   - Web UI: [http://localhost:5050](http://localhost:5050)
+   - Prometheus: [http://localhost:9090](http://localhost:9090)
+   - Grafana: [http://localhost:3000](http://localhost:3000)
+
+3. To run in the background:
+   ```bash
+   docker-compose up -d --build
+   ```
+
+---
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-Once the app is running (via Docker or local), visit: http://localhost:5000
+Once the app is running (via Docker or local), visit: http://localhost:5050
 
 ###  From the Web Interface
 
@@ -224,11 +252,11 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Top contributors:
+<!-- ### Top contributors:
 
 <a href="https://github.com/github_username/repo_name/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=github_username/repo_name" alt="contrib.rocks image" />
-</a>
+</a> -->
 
 
 
@@ -283,6 +311,23 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [license-shield]: https://img.shields.io/github/license/xfy0012/Status-Watcher-.svg?style=for-the-badge
 [license-url]: https://github.com/xfy0012/Status-Watcher-/blob/main/LICENSE
 
+[Python]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
+[Python-url]: https://www.python.org/
+
+[Flask]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
+[Flask-url]: https://flask.palletsprojects.com/
+
+[SQLite]: https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white
+[SQLite-url]: https://www.sqlite.org/
+
+[Bootstrap]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com/
+
+[Docker]: https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white
+[Docker-url]: https://www.docker.com/
+
+[Discord]: https://img.shields.io/badge/Discord%20Webhook-5865F2?style=for-the-badge&logo=discord&logoColor=white
+[Discord-url]: https://discord.com/developers/docs/resources/webhook
 
 
 
@@ -312,6 +357,5 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![project_license][license-shield]][license-url]
-
 
 
