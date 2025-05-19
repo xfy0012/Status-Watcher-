@@ -1,4 +1,27 @@
-# Status-Watcher-
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <!-- <a href="https://github.com/github_username/repo_name">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a> -->
+
+<h3 align="center">Status-Watcher-</h3>
+
+  <p align="center">
+    Website uptime checker with scheduled scans and Discord notifications
+    <br />
+    <!-- <a href="https://github.com/xfy0012/Status-Watcher-"><strong>Explore the docs »</strong></a> -->
+    <br />
+    <br />
+    <!--<a href="https://github.com/xfy0012/Status-Watcher-">View Demo</a>-->
+    &middot;
+    <a href="https://github.com/xfy0012/Status-Watcher-/issues/new?template=bug_report.md">Report Bug</a>
+    &middot;
+    <a href="https://github.com/xfy0012/Status-Watcher-/new?template=feature_request.md">Request Feature</a>
+  </p>
+</div>
+
+
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
