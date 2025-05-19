@@ -83,7 +83,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![Product Name Screen Shot](assets/web_ui.png)
 
 **Status Watcher** is a lightweight website monitoring tool that helps users track website uptime and receive real-time alerts when downtime occurs.
 
