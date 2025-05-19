@@ -44,6 +44,13 @@
 
 ## Getting Started
 
+### Environment Setup
+Before running the project, create a `.env` file in the project root directory and add your Discord webhook URL:
+
+```env
+DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your_webhook_id/your_webhook_token
+```
+
 ### Prerequisites
 - Python 3.8+
 - pip

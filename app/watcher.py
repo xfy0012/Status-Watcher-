@@ -24,10 +24,13 @@ def check_all_websites(app):
         for site in websites:
             print(f"checking {site.url}")
             try:
+
                 start = datetime.now()  # Record start time for response time calculation
                 response = httpx.get(site.url, timeout=5)   # Attempt to make a GET request to the website
                 duration = (datetime.now() - start).total_seconds()  # Calculate response time
+
                 new_status = str(response.status_code)  # Save status code as string
+
                 response_time_gauge.labels(url=site.url).set(duration)
                 status_code_gauge.labels(url=site.url).set(int(response.status_code))
             except httpx.TimeoutException:
