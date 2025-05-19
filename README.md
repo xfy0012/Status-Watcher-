@@ -182,7 +182,7 @@ Make sure you have the following installed:
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-Once the app is running (via Docker or local), visit: http://localhost:5000
+Once the app is running (via Docker or local), visit: http://localhost:5050
 
 ###  From the Web Interface
 

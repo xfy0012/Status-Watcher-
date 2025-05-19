@@ -6,6 +6,8 @@ services:
     container_name: flask-app
     ports:
       - "5050:5000"
+    volumes:
+      - ./instance:/app/instance
     depends_on:
       - prometheus
     restart: always
