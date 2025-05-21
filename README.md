@@ -81,6 +81,8 @@ DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your_webhook_id/your_webhoo
 - Python 3.8+
 - pip
 - Docker & Docker Compose
+- SQLite
+
 
 ### Local Installation
 ```bash
